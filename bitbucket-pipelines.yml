@@ -1,0 +1,9 @@
+image: nodesource/jessie:4.3.2
+
+pipelines:
+  default:
+    - step:
+        script:
+          - npm install --only=dev
+          - npm install
+          - npm test
