@@ -8,15 +8,10 @@ exports.getColors = (url) => {
 
 return new Promise(function(resolve, reject) {
 
-    jsdom.env(
-      url,
-      ["http://code.jquery.com/jquery.js"],
-      function (err, window) {
+    jsdom.env(url, ["http://code.jquery.com/jquery.js"], function (err, window) {
 
         let $ = window.$;
         let result = setResult($, url);
-
-    //    console.log("result: ", result);
 
         resolve(result);
 
@@ -28,9 +23,8 @@ return new Promise(function(resolve, reject) {
 }
 
 let setResult = ($, url) => {
- 
+    
     let title, result;
- 
     title = $("title").text() || '';
     result = {};
 
@@ -49,6 +43,7 @@ let setResult = ($, url) => {
 }
 
 let setColor = ($) => {
+    
     let colors = [];
     
     $("li.color").each(function() {
@@ -60,6 +55,7 @@ let setColor = ($) => {
 }
 
 let setTags = ($) => {
+    
     let tags = [];
     
     $("li.tag a").each(function() {
